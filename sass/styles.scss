@@ -228,10 +228,17 @@ Hero
   }
 }
 .navigation {
-  transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;.transparent-bar {
+  background-color: rgba(55,55,55,0.85);
+  border-bottom: none;
+}
   position: fixed;
   width: 100%;
   z-index: 999;
+}
+.transparent-bar {
+  background-color: rgba(55,55,55,0.85);
+  border-bottom: none;
 }
 .fixed {
   position: fixed;

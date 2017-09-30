@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+    /***************** Nav Transformicon ******************/
+
+    /* When user clicks the Icon */
+    $('.nav-toggle').click(function () {
+        console.log('click');
+        //event.preventDefault();
+        $(this).toggleClass('active');
+        $('.header-nav').toggleClass('open');
+    });
+    /* When user clicks a link */
+    $('.header-nav li a').click(function () {
+        $('.nav-toggle').toggleClass('active');
+        $('.header-nav').toggleClass('open');
+
+    });
+
     /***************** Smooth Scrolling ******************/
     $(function () {
         $('a[href*=#]:not([href=#])').click(function () {
@@ -16,7 +32,18 @@ $(document).ready(function () {
             }
         });
     });
-    
+
+    /***************** Navbar transparency scroll *******/
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        //>=, not <=
+        if (scroll >= 600) {
+            $("div.navigation").addClass("transparent-bar");
+        } else if (scroll == 0) {
+            $("div.navigation").removeClass("transparent-bar");
+        }
+    }); //missing );
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
@@ -36,6 +63,7 @@ $(document).ready(function () {
     });
 
     /***************** Initiate Flexslider ******************/
+    /* TODO: debug */
     $('.flexslider').flexslider({
         animation: "slide"
     });
@@ -49,20 +77,6 @@ $(document).ready(function () {
     /***************** Tooltips ******************/
     $('[data-toggle="tooltip"]').tooltip();
 
-    /***************** Nav Transformicon ******************/
-
-    /* When user clicks the Icon */
-    $('.nav-toggle').click(function () {
-        $(this).toggleClass('active');
-        $('.header-nav').toggleClass('open');
-        event.preventDefault();
-    });
-    /* When user clicks a link */
-    $('.header-nav li a').click(function () {
-        $('.nav-toggle').toggleClass('active');
-        $('.header-nav').toggleClass('open');
-
-    });
 
     /***************** Header BG Scroll ******************/
 

@@ -52,7 +52,7 @@
 	}
 
 	header .nav-wrapper {
-		display: absolute;
+		display: inline-block;
 	}
 
 	header nav {
@@ -76,12 +76,17 @@
 		transition: all 300ms ease-in-out
 	}
 
-	nav ul li {
-		margin-bottom: 25px
+	.header-inner ul.primary-nav {
+		margin: 110px 0 0 0;
+		padding: 0;
+		text-align: center;
 	}
 
-	nav ul.primary-nav li {
+	.header-inner ul.primary-nav li {
 		display: block;
+		padding-bottom: 18px;
+		border-bottom: 1px solid white;
+		margin-bottom: 3%;
 	}
 
 	nav ul.member-actions li {
@@ -319,4 +324,6 @@
 	}
 
 	@media screen and (max-width:320px) {
+
+	}
 	}
