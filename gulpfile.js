@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 var cssnano = require('cssnano');
+var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 
@@ -17,13 +18,24 @@ gulp.task('css', function () {
 
 gulp.task('js', function (cb) {
     pump([
-            gulp.src('./scripts/**/*.js'),
+            gulp.src('./js/scripts.js'),
             uglify(),
-            gulp.dest('./js/')
+            gulp.dest('./js/min/')
         ],
         cb
     )
     .pipe(browserSync.stream());
+});
+
+gulp.task('clean', function (cb) {
+    pump([
+            gulp.src('./css/styles.css')
+                .pipe(cleanCSS({compatibility: 'ie8'})),
+            gulp.dest('./css/min/')
+        ],
+        cb
+    )
+        .pipe(browserSync.stream());
 });
 
 gulp.task('default', ['css', 'js'], function(){

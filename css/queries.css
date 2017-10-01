@@ -89,6 +89,11 @@
 		margin-bottom: 3%;
 	}
 
+	.header-inner .member-actions {
+		position: relative;
+		text-align: center;
+	}
+
 	nav ul.member-actions li {
 		display: block;
 	}
